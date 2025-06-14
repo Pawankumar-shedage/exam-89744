@@ -25,7 +25,20 @@ pipeline {
                 sh 'docker push gaming7761/exam_nginx_2'
             }
         }
+        
+        //remove and start service
 
+        stage('remove existing service') {
+            steps {
+                sh 'docker service rm examservice'
+            }
+        }
+
+	      stage('create service') {
+            steps {
+                sh 'docker service create --name examservice -p 4000:4000 --replicas 2 gaming7761/exam_nginx_2'
+            }
+        }
 
     }
 
