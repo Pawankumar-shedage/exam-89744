@@ -10,7 +10,7 @@ pipeline {
         
         stage ('Build image') {
             steps {
-                sh 'docker build -t gaming7761/exam_nginx_1 .'
+                sh 'docker build -t gaming7761/exam_nginx_2 .'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
  
         stage('push image') {
             steps {
-                sh 'docker push gaming7761/myweb'
+                sh 'docker push gaming7761/exam_nginx_2'
             }
         }
 
