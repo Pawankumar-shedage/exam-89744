@@ -13,6 +13,20 @@ pipeline {
                 sh 'docker build -t gaming7761/exam_nginx_1 .'
             }
         }
+
+        stage ('docker login'){
+            steps {
+                sh 'echo dckr_pat_kF7Lo8M9JBru8jqM01UTWVbE8os | docker login -u gaming7761 --password-stdin'
+            }
+        }
+ 
+        stage('push image') {
+            steps {
+                sh 'docker push gaming7761/myweb'
+            }
+        }
+
+
     }
 
  }
